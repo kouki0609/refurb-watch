@@ -1,0 +1,20 @@
+{
+  "name": "refurb-watch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fetch": "node src/fetch.mjs",
+    "watch": "node index.mjs",
+    "dry": "DRY_RUN=1 node index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.60.0",
+    "twitter-api-v2": "^1.29.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "watch": {
+    "models": ["macbook-air", "macbook-pro", "mac-mini", "mac-studio", "imac"],
+    "maxPriceYen": null,
+    "titleIncludes": [],
+    "titleExcludes": []
+  },
+  "post": {
+    "maxPostsPerRun": 4,
+    "dryRun": false,
+    "hashtags": ["#Apple整備済製品", "#Mac整備済"]
+  }
+}
