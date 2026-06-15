@@ -9,7 +9,14 @@ import { postTweets } from './src/post.mjs';
 
 const cfg = JSON.parse(await readFile(new URL('./config.json', import.meta.url), 'utf-8'));
 const nowIso = new Date().toISOString();
-const dryRun = process.env.DRY_RUN === '1' || cfg.post.dryRun;
+// X APIキーが未設定なら投稿はスキップ（在庫追跡は継続）。キー登録後に自動で投稿開始。
+const hasXKeys =
+  process.env.X_APP_KEY &&
+  process.env.X_APP_SECRET &&
+  process.env.X_ACCESS_TOKEN &&
+  process.env.X_ACCESS_SECRET;
+if (!hasXKeys) console.error('※ X APIキー未設定: 投稿はスキップし状態のみ更新します。');
+const dryRun = process.env.DRY_RUN === '1' || cfg.post.dryRun || !hasXKeys;
 
 console.error(`[${nowIso}] fetching refurb…`);
 const items = await fetchAllRefurb();
