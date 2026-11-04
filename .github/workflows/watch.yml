@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   watch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # ubuntu-latest=Ubuntu 26 では Playwright が Chromium を入れられない（2026-11-05）
     steps:
       - uses: actions/checkout@v4
 
